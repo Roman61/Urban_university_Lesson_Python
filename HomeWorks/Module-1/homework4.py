@@ -12,7 +12,6 @@ else:
     print("Является студентом: Нет")
 
 print("\n" + 'Изменение по сюжету: ')
-
 mutable_list[0] = "Отсутствует"
 mutable_list[1] = "Коцебу"
 mutable_list[2] = True

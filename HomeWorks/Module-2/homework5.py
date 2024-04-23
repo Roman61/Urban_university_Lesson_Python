@@ -9,4 +9,3 @@ for i in range(0, len(cars)):
     if i >= 2:
         cars_count += 10
 pass
-

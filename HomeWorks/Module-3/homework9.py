@@ -16,8 +16,9 @@
 import string
 
 print("Программа выводит фрагмент таблицы умножения. От a до b, умноженных на числа от c до d.")
-a, b, c, d = map(int, input('Введите числа "a","b","c","d" через запятую: ').split(','))
 try:
+    a, b, c, d = map(int, input('Введите числа "a","b","c","d" через запятую: ').split(','))
+
     if (a, b, c, d < 10) or (a <= b) or (c <= d):
         print('', end='\t')
         for i in range(c, d + 1):

@@ -19,6 +19,7 @@ def tree_summator(structure, a):
                 a += i
             elif type(i) == dict:
                 a = tree_summator(i.values(), a)
+                a = tree_summator(i.keys(), a)
             else:
                 a = tree_summator(i, a)
     return a

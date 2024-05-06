@@ -27,7 +27,7 @@ while not arena:
             exit_ = input("Желаете начать с начала? y/n  ")
         if exit_ == "n" or exit_ == "N":
             print("Выход из игры!")
-            exit()
+            exit    ()
 
 while not victory:
     game.draw(arena)
@@ -43,7 +43,7 @@ while not victory:
     column = int(input(f'Введите номер столбца от 1 до {len(arena[0])}: ')) - 1
     arena[row][column] = step_char
 
-    n = 7
+    n = 3
     for i in range(0, n):
         for j in range(0, n):
             if i == 0 or i == n - 1 or j == i or j == n - i - 1:

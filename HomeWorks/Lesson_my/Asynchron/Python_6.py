@@ -41,15 +41,20 @@ def average():
     return average_
 
 
-@coroutine
+# @coroutine
 def subgen():
     while True:
         try:
             message = yield
         except StopIteration:
-            pass
+            break
+        except UserEventException:
+            # print('Ku-ku!!')
+            break
         else:
             print('.......', message)
+
+    return 'Return from subgen()'
 
     # for i in 'Roman':
     #     yield i
@@ -57,20 +62,29 @@ def subgen():
 
 @coroutine
 def delegator(g):
-    while True:
-        try:
-            data = yield
-            g.send(data)
-        except StopIteration:
-            pass
+    result = yield from g
+    print(result)
+
+    # while True:
+    #     try:
+    #         data = yield
+    #         g.send(data)
+    #     except StopIteration:
+    #         pass
+    #     except UserEventException as e:
+    #         g.throw(e)
 
     # for i in g:
     #     yield i
 
 
-sg = subgen()
-g = delegator(sg)
-g.send('Ok')
+g = delegator(subgen())
+g.throw(UserEventException)
+# sg = subgen()
+# g = delegator(sg)
+# g.send('Ok')
+# g.send('111Ok111')
+# g.throw(StopIteration)
 
 # g = average()
 # print(getgeneratorstate(g))

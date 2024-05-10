@@ -78,6 +78,15 @@ def delegator(g):
     #     yield i
 
 
+def a():
+    yield from "Roman"
+
+
+gyf = a()
+print(next(gyf))
+print(next(gyf))
+print(next(gyf))
+
 g = delegator(subgen())
 g.throw(UserEventException)
 # sg = subgen()

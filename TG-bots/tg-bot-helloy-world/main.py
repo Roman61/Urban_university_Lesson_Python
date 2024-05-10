@@ -11,7 +11,7 @@ from rembg import remove
 from PIL import Image
 from pathlib import Path
 
-bot = Bot(token='7026873368:AAF-dT6eJ31l1aQhAJyLGNnIkQ1qI6g7tWc')
+bot = Bot(token='')
 dp = Dispatcher()
 
 

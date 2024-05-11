@@ -8,10 +8,11 @@ def test():
         time.sleep(1)
 
 
-thr = threading.Timer(10, test)
+thr = threading.Timer(5, test)
+thr.setDaemon(True)
 thr.start()
 
-for _ in range(3):
+for _ in range(6):
     print("111")
     time.sleep(1)
 

@@ -1,15 +1,26 @@
 import multiprocessing
 import random
-import time
 
 
 def get_text(g):
-    g.put("test")
+    val = random.randint(0, 10)
+    print(f"В процессе добавили: {val}")
+    g.put(str(val))
 
+
+queue = multiprocessing.Queue()
+pr_list = []
 
 if __name__ == '__main__':
-    queue = multiprocessing.Queue()
-    pr = multiprocessing.Process(target=get_text, args=(queue,))
-    pr.start()
-    print(queue.get())
-    pr.join()
+    for _ in range(10):
+        pr = multiprocessing.Process(target=get_text, args=(queue,))
+        pr_list.append(pr)
+        pr.start()
+
+    for i in pr_list:
+        i.join()
+
+    for i in range(queue.qsize()):
+        print(queue.get(i))
+
+

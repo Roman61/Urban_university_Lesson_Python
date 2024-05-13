@@ -2,7 +2,7 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.dispatcher import router
 from aiogram.filters import Command
-from aiogram.types import Message, InputFile, FSInputFile
+from aiogram.types import Message, FSInputFile
 from aiogram import types
 from aiogram import F
 from aiogram.utils.markdown import hide_link
@@ -10,8 +10,9 @@ import os
 from rembg import remove
 from PIL import Image
 from pathlib import Path
+from aiogram.types import InputFile
 
-bot = Bot(token='')
+bot = Bot(token='7026873368:AAF-dT6eJ31l1aQhAJyLGNnIkQ1qI6g7tWc')
 dp = Dispatcher()
 
 
@@ -42,17 +43,29 @@ async def remove_bg(filename):
         print(f'Completed: {index + 1}/{len(all_files)}')
 
 
-@dp.message(F.text)
+@dp.message(F.text == '/start')
 async def cmd_start(message: Message):
     await message.reply('Привет!' +
-                        ' Это тестовый запуск, если ты напишешь сообщеиние я его увижу! ' +
-                        'Можешь писать пожелания и идеи для бота сюда. ' + message.text)
+                        ' Я умею удалять фон с изображения,' +
+                        ' пришли мне картинку и я её обработаю. ')
+    print(
+        str(message.from_user.id) + " " + message.from_user.username + " " + message.from_user.full_name + ": " + message.text)
+
+
+@dp.message(F.text == '/help')
+async def cmd_start(message: Message):
+    await message.reply('Привет!' +
+                        ' Я умею удалять фон с изображения,' +
+                        ' пришли мне картинку и я её обработаю. ')
     print(
         str(message.from_user.id) + " " + message.from_user.username + " " + message.from_user.full_name + ": " + message.text)
 
 
 @dp.message(F.photo)
 async def download_photo(message: Message, bot: Bot):
+    str_ = f'{message.from_user.full_name}, Я принял твою картинку в обработку. Жди'
+    await message.answer(str_)
+    print(str_)
     filename = f"{message.from_user.full_name}.{message.photo[-1].file_id}.png"
     await bot.download(
         message.photo[-1],
@@ -60,32 +73,26 @@ async def download_photo(message: Message, bot: Bot):
     )
     await remove_bg(filename)
 
-    str_ = (str(message.from_user.id) + " " + message.from_user.full_name + ": Прислал картинку " + filename)
-    await message.answer(str_)
-    print(str_)
-
     filename = f"{message.from_user.full_name}.{message.photo[-1].file_id}_output.png"
-    await message.answer_photo(#_document(#)
+    await message.answer_photo(  # _document(#)
         photo=types.FSInputFile(
             path=filename
         ),
-        caption=f'{message.from_user.full_name}, твоё фото обработано!\nМы рады что вы пользуйтесь нашим ботом!'
+        caption=f'{message.from_user.username}, твоё фото обработано!\nМы рады, что Вы пользуетесь нашим ботом!'
     )
 
-    # document = FSInputFile(path=filename)
-    # await message.send_document(Message.chat.id, document)
+    document = FSInputFile(filename)
+    await bot.send_document(message.from_user.id, document)
 
     os.remove(f"{message.from_user.full_name}.{message.photo[-1].file_id}.png")
-    # os.remove(f"{message.from_user.full_name}.{message.photo[-1].file_id}_output.png")
+    os.remove(f"{message.from_user.full_name}.{message.photo[-1].file_id}_output.png")
 
 
 @dp.message(F.sticker)
 async def download_sticker(message: Message, bot: Bot):
-    await bot.download(
-        message.sticker,
-        # для Windows пути надо подправить
-        destination=f"/tmp/{message.sticker.file_id}.webp"
-    )
+    str_ = (f'{message.from_user.full_name}, Я не мею обрабатывать стикеры, извини. Кидай картинки в png, jpg bmp '
+            f'форматах')
+    await message.answer(str_)
 
 
 if __name__ == '__main__':

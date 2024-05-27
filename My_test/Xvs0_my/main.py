@@ -1,6 +1,6 @@
 # from game import draw
 import game
-from game import arena, victory, step, step_char
+from game import arena, victory, step
 
 print("Добро пожаловать в игру 'Крестики Нолики'!")
 print("Правила:")

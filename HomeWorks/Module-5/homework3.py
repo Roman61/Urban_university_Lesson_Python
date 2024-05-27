@@ -19,7 +19,6 @@ class Buiding:
 def main():
     list_buiding = []
 
-
     for i in range(2):
         floors = 0
         building_type = ""

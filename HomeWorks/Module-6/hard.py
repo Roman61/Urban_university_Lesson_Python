@@ -3,7 +3,7 @@ import math
 
 class Figure:
     def __init__(self, *args):
-        if self.sides_count == None:
+        if not self.sides_count:
             self.sides_count: int = 0
         self.__sides = []
         self.__color = []

@@ -89,7 +89,7 @@ class Triangle(Figure):
         a = self.get_sides()[0]
         b = self.get_sides()[1]
         c = self.get_sides()[2]
-        return math.sqrt(p) * (p - a)*(p - b)*(p - c)
+        return int(math.sqrt(p) * (p - a)*(p - b)*(p - c))
 
 
 class Cube(Figure):
@@ -128,4 +128,8 @@ if __name__ == '__main__':
 
     # Проверка объёма (куба):
     print(cube1.get_volume())
+
+    triangle = Triangle((300, 70, 15), 10, 6, 10)
+    print(len(triangle))
+    print(triangle.get_square())
 

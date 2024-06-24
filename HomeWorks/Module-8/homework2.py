@@ -37,7 +37,7 @@ def main():
     error_command = False
     while True:
         command_str = input("Введите командную строку или инструкцию к действиям: ")
-        if command_str == 'execute':
+        if command_str == 'execute':  # исправлние
             break
 
         while True:

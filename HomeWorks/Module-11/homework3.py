@@ -9,8 +9,6 @@ def introspection_info(obj):
     info['methods'] = [method for method in dir(obj) if callable(getattr(obj, method)) and not method.startswith('__')]
     if hasattr(inspect.getmodule(obj), "__name__"):
         info['module'] = inspect.getmodule(obj).__name__
-
-    # Добавление дополнительной информации в зависимости от типа объекта
     if info['type'] == 'function':
         info['function_signature'] = inspect.signature(obj)
         info['function_docstring'] = inspect.getdoc(obj)

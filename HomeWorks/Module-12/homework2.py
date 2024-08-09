@@ -44,7 +44,7 @@ class TournamentTest(TestCase):
         for _ in range(2):
             tournament = Tournament(90, *(self.runner_y, self.runner_a, self.runner_n))
             results.append(tournament.start())
-            self.setUp()
+            # self.setUp()
             print(results)
             if len(results) > 1:
                 first = results[0]

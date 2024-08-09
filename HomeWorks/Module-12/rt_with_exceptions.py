@@ -44,7 +44,8 @@ class Tournament:
                     finishers[place] = participant
                     place += 1
                     self.participants.remove(participant)
-
+        for finisher in finishers:
+            finishers[finisher].distance = 0
         return finishers
 
 # first = Runner('Вося', 10)

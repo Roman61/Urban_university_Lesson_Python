@@ -4,19 +4,19 @@ from rt_with_exceptions import Runner, Tournament
 
 class TournamentTest(TestCase):
     @classmethod
-    def setUpClass(self):
-        self.all_results = []
+    def setUpClass(cls):
+        cls.all_results = []
 
     @classmethod
-    def setUp(self):
-        self.runner_y = Runner("Усэйн", 10)
-        self.runner_a = Runner("Андрей", 9)
-        self.runner_n = Runner("Ник", 3)
+    def setUp(cls):
+        cls.runner_y = Runner("Усэйн", 10)
+        cls.runner_a = Runner("Андрей", 9)
+        cls.runner_n = Runner("Ник", 3)
 
     @classmethod
-    def tearDownClass(self):
+    def tearDownClass(cls):
         print()
-        for i in self.all_results:
+        for i in cls.all_results:
             print(i)
         pass
 

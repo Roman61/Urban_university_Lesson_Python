@@ -1,8 +1,11 @@
+import unittest
 from unittest import TestCase
 from rt_with_exceptions import Runner, Tournament
 
 
 class TournamentTest(TestCase):
+    is_frozen = True
+
     @classmethod
     def setUpClass(cls):
         cls.all_results = []
@@ -20,32 +23,36 @@ class TournamentTest(TestCase):
             print(i)
         pass
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_tournament_1(self):
         tournament = Tournament(90, *(self.runner_a, self.runner_n))
         results = tournament.start()
         self.all_results.append(results)
         self.assertTrue(results[2].name, self.runner_n.name)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_tournament_2(self):
         tournament = Tournament(90, *(self.runner_y, self.runner_n))
         results = tournament.start()
         self.all_results.append(results)
         self.assertTrue(results[2].name, self.runner_n.name)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_tournament_3(self):
         tournament = Tournament(90, *(self.runner_y, self.runner_a, self.runner_n))
         results = tournament.start()
         self.all_results.append(results)
         self.assertTrue(results[2].name, self.runner_n.name)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_tournament_multi(self):
-        print()
+        # print()
         results = []
         for _ in range(2):
             tournament = Tournament(90, *(self.runner_y, self.runner_a, self.runner_n))
             results.append(tournament.start())
             # self.setUp()
-            print(results)
+            # print(results)
             if len(results) > 1:
                 first = results[0]
                 first_last_key = list(first.keys())

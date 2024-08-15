@@ -1,5 +1,9 @@
 class Runner:
     def __init__(self, name, speed=5):
+        if not isinstance(name, str):
+            raise TypeError('Имя не может быть числом!')
+        if speed < 0:
+            raise ValueError("Значение скорости бегуна не может быть отрицательным")
         self.name = name
         self.distance = 0
         self.speed = speed

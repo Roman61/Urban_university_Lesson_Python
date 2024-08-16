@@ -12,15 +12,17 @@ async def start_strongman(name, power):
     print(f"Силач {name} закончил соревнования.")
 
 
-async def start_tournament():
+async def start_tournament(_strongmen):
     tasks = []
-    strongmen = {'Паша': 3, 'Денис': 4, 'Саша': 5}
-    for strongman, power in strongmen.items():
+
+    for strongman, power in _strongmen.items():
         task = asyncio.create_task(start_strongman(strongman, power))
         tasks.append(task)
 
     await asyncio.gather(*tasks)
 
+
 if __name__ == '__main__':
-    asyncio.run(start_tournament())
+    strongmen = {'Паша': 3, 'Денис': 4, 'Саша': 5}
+    asyncio.run(start_tournament(strongmen))
 

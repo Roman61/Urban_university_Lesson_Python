@@ -27,6 +27,10 @@ cursor.execute("DELETE FROM Users WHERE (id % 3) = 1")
 cursor.execute("DELETE FROM Users WHERE id = 6")
 
 cursor.execute("SELECT COUNT(*) FROM Users")
+temp1 = cursor.fetchone()[0]
+cursor.execute("SELECT SUM(balance) FROM Users")
+temp2 = cursor.fetchone()[0]
+balance = temp2/temp1
 cursor.execute("SELECT AVG(balance) FROM Users")
 
 avg_balance = cursor.fetchone()[0]

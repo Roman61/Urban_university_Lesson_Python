@@ -37,6 +37,53 @@ class Engine:
                 img TEXT NOT NULL
                 )
                 ''')
+        self.cursor.execute('''
+                CREATE TABLE IF NOT EXISTS Users(
+                id INTEGER PRIMARY KEY,
+                username TEXT NOT NULL,
+                email TEXT NOT NULL,
+                age INTEGER,
+                growth INTEGER, 
+                weight INTEGER
+                )
+                ''')
+
+    def add_user(self, username, email, age, growth, weight):
+        check_user = self.cursor.execute("SELECT * FROM Users WHERE username=?", (username,))
+
+        if check_user.fetchone() is None:
+            user_id = len(self.get_all_users()) + 1
+            print(f'''
+            INSERT INTO Users VALUES ('{user_id}','{username}','{email}', {age}, {growth}, {weight})
+            ''')
+            self.cursor.execute(f'''
+            INSERT INTO Users VALUES ('{user_id}','{username}','{email}', {age}, {growth}, {weight})
+            ''')
+            self.connection.commit()
+
+    def show_stat(self):
+        count_users = self.cursor.execute("SELECT COUNT(*) FROM Users").fetchone()
+        self.connection.commit()
+        return count_users[0]
+
+    def show_users(self):
+        users_list = self.cursor.execute("SELECT * FROM Users").fetchall()
+        message = ''
+        for user in users_list:
+            message += f'{user[0]} @{user[1]} {user[2]} {user[3]} {user[4]} {user[2]} \n'
+        self.connection.commit()
+        return message
+
+    def check_user(self, username):
+        check_user = self.cursor.execute("SELECT * FROM Users WHERE username=?", (username,))
+
+        if check_user.fetchone() is None:
+            return False
+        else:
+            return True
+
+    def get_all_users(self):
+        return self.cursor.execute('SELECT * FROM Users').fetchall()
 
     def add_product(self, product_id: int, title: str, description: str, price: int, img: str):
         check_product = self.cursor.execute('SELECT * FROM Products WHERE id=?', (product_id,))

@@ -32,5 +32,4 @@ async def delete_user(user_id) -> str:
 
 if __name__ == "__main__":
     import uvicorn
-
     uvicorn.run(app, host="192.168.5.70", port=80)

@@ -10,7 +10,7 @@ async def get_root():
 
 
 @app.get("/user/{user_id}")
-async def get_user_by_id(user_id: int = Path(ge=1, le=100, description="Enter User ID")):
+async def get_user_by_id(user_id: int = Path(ge=1, le=100, description="Enter User ID", example=1)):
     return {"message": f"Вы вошли как пользователь № {user_id}"}
 
 
@@ -29,4 +29,4 @@ async def get_admin():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="192.168.5.70", port=80)

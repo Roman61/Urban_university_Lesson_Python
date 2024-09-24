@@ -16,8 +16,8 @@ async def get_user_by_id(user_id: int = Path(ge=1, le=100, description="Enter Us
 
 @app.get("/user/{username}/{age}")
 async def get_user(
-        username: str = Path(min_lenght=5, max_lenght=20, description="Enter username"),
-        age: int = Path(ge=18, le=120, description="Enter age")) -> dict:
+        username: str = Path(min_lenght=5, max_lenght=20, description="Enter username", example='UrbanUser'),
+        age: int = Path(ge=18, le=120, description="Enter age", example=24)) -> dict:
     return {"message": f"Информация о пользователе. Имя: {username} Возраст: {age}"}
 
 

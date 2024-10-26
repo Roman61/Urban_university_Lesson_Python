@@ -1,0 +1,251 @@
+{
+    "Demiurge": {
+        "Analyzers": {
+            "ADataRequirements": {
+                "Descriptions.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                },
+                "__init__.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                }
+            },
+            "AEvents": {
+                "__init__.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                }
+            },
+            "mindmap.py": {
+                "classes": [],
+                "functions": [],
+                "variables": []
+            },
+            "ui_analyzer.py": {
+                "classes": [],
+                "functions": [],
+                "variables": []
+            },
+            "ux_analyzer.py": {
+                "classes": [],
+                "functions": [],
+                "variables": []
+            },
+            "__init__.py": {
+                "classes": [],
+                "functions": [],
+                "variables": []
+            }
+        },
+        "Architecture": {
+            "Analyzer.py": {
+                "classes": [
+                    {
+                        "name": "ProjectAnalyzer",
+                        "methods": [
+                            "__init__",
+                            "find_project_root",
+                            "get_architecture",
+                            "traverse_directory",
+                            "file_analyzer",
+                            "parse_python_file",
+                            "parse_python_file_details",
+                            "print_architecture",
+                            "_print_file_details",
+                            "save_architecture_to_json",
+                            "save_architecture_to_xml"
+                        ],
+                        "fields": []
+                    }
+                ],
+                "functions": [],
+                "variables": []
+            },
+            "Creator.py": {
+                "classes": [
+                    {
+                        "name": "ProjectCreator",
+                        "methods": [
+                            "__init__",
+                            "load_from_json",
+                            "load_from_xml",
+                            "_xml_to_dict",
+                            "create_project_structure",
+                            "_create_directory",
+                            "_create_python_file",
+                            "find_project_root"
+                        ],
+                        "fields": []
+                    }
+                ],
+                "functions": [],
+                "variables": []
+            },
+            "test.py": {
+                "classes": [
+                    {
+                        "name": "ProjectAnalyzer",
+                        "methods": [
+                            "__init__",
+                            "find_project_root",
+                            "get_architecture",
+                            "traverse_directory",
+                            "file_analyzer",
+                            "parse_python_file",
+                            "print_architecture",
+                            "_print_file_details"
+                        ],
+                        "fields": []
+                    }
+                ],
+                "functions": [],
+                "variables": []
+            }
+        },
+        "Converters": {
+            "MentalMap": {
+                "Freeplane": {
+                    "text_to_mindmap.py": {
+                        "classes": [],
+                        "functions": [],
+                        "variables": []
+                    },
+                    "__init__.py": {
+                        "classes": [],
+                        "functions": [],
+                        "variables": []
+                    }
+                },
+                "__init__.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                }
+            },
+            "UI": {
+                "QtDesigner": {
+                    "Pythoner.py": {
+                        "classes": [],
+                        "functions": [],
+                        "variables": []
+                    },
+                    "__init__.py": {
+                        "classes": [],
+                        "functions": [],
+                        "variables": []
+                    }
+                },
+                "__init__.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                }
+            },
+            "UX": {
+                "BalsamiqWireframes": {
+                    "mm_json_adapter.py": {
+                        "classes": [],
+                        "functions": [],
+                        "variables": []
+                    },
+                    "ui_json_adapter.py": {
+                        "classes": [],
+                        "functions": [],
+                        "variables": []
+                    },
+                    "ux_to_ui.py": {
+                        "classes": [],
+                        "functions": [],
+                        "variables": []
+                    },
+                    "__init__.py": {
+                        "classes": [],
+                        "functions": [],
+                        "variables": []
+                    }
+                },
+                "__init__.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                }
+            },
+            "__init__.py": {
+                "classes": [],
+                "functions": [],
+                "variables": []
+            }
+        },
+        "Generators": {
+            "DatabaseStructure": {
+                "Connection.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                },
+                "Creator.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                },
+                "Queries.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                },
+                "Schema.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                },
+                "__init__.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                }
+            },
+            "Function": {
+                "Creater.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                },
+                "__init__.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                }
+            },
+            "StateMachine": {
+                "point.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                },
+                "Transitions.py": {
+                    "classes": [],
+                    "functions": [],
+                    "variables": []
+                }
+            },
+            "__init__.py": {
+                "classes": [],
+                "functions": [],
+                "variables": []
+            }
+        },
+        "main.py": {
+            "classes": [],
+            "functions": [
+                "print_hi"
+            ],
+            "variables": []
+        },
+        "Resources": {},
+        "Tests": {}
+    }
+}
